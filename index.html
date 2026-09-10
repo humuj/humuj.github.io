@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xman51期-学员成长记录与实训项目专题展示</title>
+    <meta name="description" content="xman51期专题页，展示实训班级的学习历程、核心课程模块、学员项目作品与成长心得，帮助您了解这一期培训的真实内容与成果。">
+    <meta name="keywords" content="xman51期,xman培训,实训班级,学员项目,成长记录,技术培训">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f5f7fb;
+            color: #1f2a3a;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== Header ===== */
+        .site-header {
+            background: #0e1a2b;
+            padding: 14px 0;
+            border-bottom: 3px solid #3a7bd5;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+        }
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: #3a7bd5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: #fff;
+        }
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .brand-sub {
+            font-size: 12px;
+            opacity: 0.75;
+            display: block;
+            margin-top: -2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #ccd9ee;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+            border-bottom-color: #3a7bd5;
+        }
+
+        /* ===== Hero 区域 ===== */
+        .hero {
+            background: linear-gradient(135deg, #0b1422 0%, #1b2f4a 100%);
+            color: #fff;
+            padding: 64px 0 60px;
+            margin-bottom: 40px;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            flex: 1 1 360px;
+        }
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .hero-text h1 span {
+            color: #7fb0f0;
+        }
+        .hero-text p {
+            font-size: 17px;
+            opacity: 0.85;
+            margin-bottom: 28px;
+            max-width: 560px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .stat-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 22px;
+            border-radius: 12px;
+            border-left: 3px solid #3a7bd5;
+        }
+        .stat-num {
+            font-size: 26px;
+            font-weight: 700;
+            display: block;
+        }
+        .stat-label {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: #3a7bd5;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+        .hero-image {
+            flex: 0 1 320px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .hero-image .code-snippet {
+            background: #0d1b2a;
+            padding: 16px;
+            border-radius: 12px;
+            font-family: "SF Mono", "Fira Code", monospace;
+            font-size: 13px;
+            text-align: left;
+            color: #a8d0a0;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        .hero-image .image-caption {
+            font-size: 14px;
+            color: #b8cbe0;
+        }
+
+        /* ===== 通用区块 ===== */
+        .section {
+            margin-bottom: 52px;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title::before {
+            content: "";
+            width: 6px;
+            height: 28px;
+            background: #3a7bd5;
+            border-radius: 3px;
+        }
+        .section-sub {
+            color: #5a6b7c;
+            margin-bottom: 30px;
+            font-size: 15px;
+            padding-left: 18px;
+        }
+
+        /* ===== 课程模块卡片 ===== */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .module-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 22px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 4px solid #3a7bd5;
+        }
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        .module-icon {
+            font-size: 30px;
+            margin-bottom: 14px;
+        }
+        .module-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .module-card p {
+            color: #4a5b6c;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .module-tag {
+            display: inline-block;
+            background: #eef3fb;
+            color: #2b5ea7;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* ===== 时间线 ===== */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 20px;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #d3def0;
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+            background: #fff;
+            padding: 20px 24px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -27px;
+            top: 28px;
+            width: 14px;
+            height: 14px;
+            background: #3a7bd5;
+            border-radius: 50%;
+            border: 3px solid #f0f4fc;
+        }
+        .timeline-date {
+            font-size: 13px;
+            color: #6b7b8c;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .timeline-item h3 {
+            font-size: 18px;
+            margin: 6px 0 8px;
+        }
+        .timeline-item p {
+            font-size: 14px;
+            color: #3e4e5e;
+        }
+
+        /* ===== 项目展示 ===== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+        }
+        .project-preview {
+            background: #1d2c3f;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aac6ef;
+            font-size: 14px;
+            font-family: monospace;
+            padding: 12px;
+            overflow: hidden;
+        }
+        .project-body {
+            padding: 22px 20px;
+            flex: 1;
+        }
+        .project-body h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .project-body p {
+            font-size: 14px;
+            color: #4f6070;
+            margin-bottom: 14px;
+        }
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #7a8b9c;
+            border-top: 1px solid #eef1f5;
+            padding-top: 12px;
+        }
+
+        /* ===== 学员心得 ===== */
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .quote-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid #7fa8d9;
+        }
+        .quote-card blockquote {
+            font-size: 15px;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .quote-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1f2a3a;
+        }
+        .quote-role {
+            font-size: 13px;
+            color: #6f8294;
+        }
+
+        /* ===== 常见问题 ===== */
+        .faq-list {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: default;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #edf0f5;
+        }
+        .faq-answer {
+            padding: 16px 24px 20px;
+            font-size: 15px;
+            color: #3d4e60;
+            background: #fafcff;
+        }
+
+        /* ===== 页脚 ===== */
+        .site-footer {
+            background: #0e1a2b;
+            color: #9ab0c9;
+            padding: 40px 0 30px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .footer-copyright {
+            text-align: center;
+            border-top: 1px solid #1e3044;
+            padding-top: 24px;
+            margin-top: 36px;
+            font-size: 13px;
+            color: #6d829e;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 0;
+            }
+            .hero-text h1 {
+                font-size: 30px;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .nav-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 10px;
+            }
+            .section-title {
+                font-size: 22px;
+            }
+            .module-grid,
+            .project-grid,
+            .quote-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .brand-sub {
+                display: none;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero-text h1 {
+                font-size: 26px;
+            }
+            .stat-item {
+                padding: 10px 14px;
+            }
+            .stat-num {
+                font-size: 20px;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <div class="brand-icon">X</div>
+                <div>
+                    <span class="brand-name">xman51期</span>
+                    <span class="brand-sub">实训 · 成长 · 突破</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#overview">班级概览</a></li>
+                    <li><a href="#curriculum">课程体系</a></li>
+                    <li><a href="#projects">项目作品</a></li>
+                    <li><a href="#growth">成长足迹</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="overview">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="hero-badge">2025年度实训班级</div>
+                <h1>xman51期<br><span>从理论到实战的成长之旅</span></h1>
+                <p>xman51期是一个聚焦真实项目开发的实训班级，汇聚了来自不同背景的学员。在为期数月的密集训练中，学员们通过模块化课程、团队协作与项目实战，完成从基础技能到综合能力的跃迁。</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">12周</span>
+                        <span class="stat-label">核心实训周期</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">6大</span>
+                        <span class="stat-label">课程模块</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">20+</span>
+                        <span class="stat-label">小组项目</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-snippet">
+                    <span>// xman51 班级项目示例</span><br>
+                    const xman51 = {<br>
+                    &nbsp;&nbsp;members: "30+",<br>
+                    &nbsp;&nbsp;focus: "全栈实战",<br>
+                    &nbsp;&nbsp;status: "学习中"<br>
+                    };<br>
+                    xman51.keepGoing();
+                </div>
+                <div class="image-caption">⚡ 51期 · 代码与协作并行</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 班级简介 -->
+        <section class="section">
+            <h2 class="section-title">xman51期班级概览</h2>
+            <p class="section-sub">了解这一期实训班的基本定位与培养方向</p>
+            <div style="background:#fff; border-radius:16px; padding:30px; box-shadow:0 4px 14px rgba(0,0,0,0.04);">
+                <p style="font-size:16px; margin-bottom:16px; color:#2c3e50;">xman51期是一个面向中高级学习者的综合实训班级，重点围绕<span style="font-weight:600; color:#1f4e9c;">全栈开发、项目架构、团队协作</span>三大核心能力展开。整个周期分为基础巩固、专项进阶、项目实战三个阶段，每个阶段都配有对应的考核与作品产出。</p>
+                <p style="font-size:15px; color:#455a6a; margin-bottom:20px;">51期的学员来自不同行业，包括刚毕业的学生、转行开发者以及希望提升技术深度的在职人员。班级采用小班制与分组协作模式，强调「做中学」——每项知识点都对应实际应用场景，力求结业时每位学员都能拥有完整的个人项目集。</p>
+                <div style="display:flex; flex-wrap:wrap; gap:16px;">
+                    <span style="background:#eef3fb; color:#2b5ea7; padding:8px 16px; border-radius:30px; font-size:14px;">📋 小班授课</span>
+                    <span style="background:#eef3fb; color:#2b5ea7; padding:8px 16px; border-radius:30px; font-size:14px;">🤝 双导师制</span>
+                    <span style="background:#eef3fb; color:#2b5ea7; padding:8px 16px; border-radius:30px; font-size:14px;">🛠️ 企业级项目</span>
+                    <span style="background:#eef3fb; color:#2b5ea7; padding:8px 16px; border-radius:30px; font-size:14px;">📊 每周复盘</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 课程体系 -->
+        <section class="section" id="curriculum">
+            <h2 class="section-title">核心课程模块</h2>
+            <p class="section-sub">xman51期实训内容覆盖六大方向，由浅入深构建知识体系</p>
+            <div class="module-grid">
+                <div class="module-card">
+                    <div class="module-icon">🧩</div>
+                    <h3>基础强化</h3>
+                    <p>快速补齐编程核心语法、数据结构和算法基础，并强化调试与代码规范能力。</p>
+                    <span class="module-tag">编程基本功</span>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">🗄️</div>
+                    <h3>后端与数据库</h3>
+                    <p>围绕服务端框架、RESTful API 设计、SQL 与 NoSQL 数据库应用展开实战训练。</p>
+                    <span class="module-tag">服务端开发</span>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">🎨</div>
+                    <h3>前端工程化</h3>
+                    <p>掌握现代前端框架、状态管理、工程化配置，以及响应式布局与性能优化。</p>
+                    <span class="module-tag">前端实战</span>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">☁️</div>
+                    <h3>部署与运维</h3>
+                    <p>涵盖 Linux 基础、Docker 容器化、CI/CD 流程以及云服务器部署技巧。</p>
+                    <span class="module-tag">DevOps</span>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">👥</div>
+                    <h3>团队协作</h3>
+                    <p>通过 Git 工作流、Code Review、敏捷开发模拟，培养高效协作的团队习惯。</p>
+                    <span class="module-tag">软技能</span>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">📢</div>
+                    <h3>项目路演</h3>
+                    <p>训练技术方案汇报、文档撰写与演示能力，让作品被清晰传递与认可。</p>
+                    <span class="module-tag">表达与呈现</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 成长时间线 -->
+        <section class="section" id="growth">
+            <h2 class="section-title">51期成长足迹</h2>
+            <p class="section-sub">每一阶段都有清晰目标与收获沉淀</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">第 1-3 周 · 筑基</div>
+                    <h3>环境搭建与基础巩固</h3>
+                    <p>统一开发环境，系统复习编程基础，完成个人能力测评与学习规划。班级快速进入学习节奏。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">第 4-6 周 · 专项突破</div>
+                    <h3>前后端核心深入</h3>
+                    <p>分组进行模块化训练，每个小组完成一个完整功能模块（如用户系统、数据可视化面板）。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">第 7-9 周 · 实战整合</div>
+                    <h3>全栈项目开发</h3>
+                    <p>以3-4人小组为单位，从需求分析到开发测试，完成一个具备完整业务逻辑的全栈应用。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">第 10-12 周 · 打磨与展示</div>
+                    <h3>项目优化与路演</h3>
+                    <p>对项目进行性能优化、部署上线，并面向导师和其他小组进行结业路演。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目作品 -->
+        <section class="section" id="projects">
+            <h2 class="section-title">学员项目精选</h2>
+            <p class="section-sub">以下为51期部分小组项目（展示内容已做模糊化处理）</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-preview">// 任务协作平台<br><span style="color:#6f9fdf;">board / task / member</span></div>
+                    <div class="project-body">
+                        <h3>TaskFlow 协作工具</h3>
+                        <p>一个轻量级的团队任务管理应用，支持看板视图、成员分配与截止日期提醒。</p>
+                        <div class="project-meta">
+                            <span>👥 3人小组</span>
+                            <span>⚙️ React + Node</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-preview">// 数据可视化<br><span style="color:#6f9fdf;">chart / report / filter</span></div>
+                    <div class="project-body">
+                        <h3>Insight Dashboard</h3>
+                        <p>面向运营人员的数据分析面板，通过可拖拽图表组件展示核心业务指标。</p>
+                        <div class="project-meta">
+                            <span>👥 4人小组</span>
+                            <span>📊 Vue + ECharts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-preview">// 内容社区 API<br><span style="color:#6f9fdf;">post / comment / auth</span></div>
+                    <div class="project-body">
+                        <h3>MiniBlog 轻社区</h3>
+                        <p>简洁的博客与评论系统，实现了文章发布、标签筛选和用户认证等核心功能。</p>
+                        <div class="project-meta">
+                            <span>👥 3人小组</span>
+                            <span>🗄️ Spring Boot + MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学员心得 -->
+        <section class="section">
+            <h2 class="section-title">来自51期学员的声音</h2>
+            <p class="section-sub">真实的体验分享（采用匿名化处理）</p>
+            <div class="quote-grid">
+                <div class="quote-card">
+                    <blockquote>“51期的节奏很紧凑，但每周的复盘和导师答疑让我能快速消化问题。最大的收获是终于做出了一直想完成的全栈项目。”</blockquote>
+                    <div class="quote-author">—— 学员A</div>
+                    <div class="quote-role">转行开发者</div>
+                </div>
+                <div class="quote-card">
+                    <blockquote>“小组协作的项目经历非常宝贵，学会了如何拆解任务、做 code review，也理解了沟通在工程中的重要性。”</blockquote>
+                    <div class="quote-author">—— 学员B</div>
+                    <div class="quote-role">计算机专业学生</div>
+                </div>
+                <div class="quote-card">
+                    <blockquote>“xman51期让我从只关注代码，到开始关注项目整体架构和部署流程，视野拓宽了很多。”</blockquote>
+                    <div class="quote-author">—— 学员C</div>
+                    <div class="quote-role">前端工程师</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq">
+            <h2 class="section-title">关于xman51期的常见问题</h2>
+            <p class="section-sub">针对访问者最常询问的具体问题给出说明</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">xman51期适合哪些人群参加？</div>
+                    <div class="faq-answer">主要适合具备一定编程基础、希望系统性提升全栈开发能力的学习者。无论是应届生、转行者还是初中级开发者，只要能够跟上节奏并愿意投入时间，都可以申请加入。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">51期的实训周期是多久？</div>
+                    <div class="faq-answer">核心实训周期为12周左右，但不同班级可能根据实际情况微调。课程通常安排在周末或晚间进行，具体以当期的教学计划为准。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">结业时会有作品集吗？</div>
+                    <div class="faq-answer">会。每位学员都会参与至少一个完整的小组项目，并且需要独立完成个人模块。结业时会有项目展示与代码归档，可以作为个人作品集的一部分。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何获取xman51期的更多信息？</div>
+                    <div class="faq-answer">您可以关注官方网站的公告或咨询相关招生渠道。本页面展示的是班级概况与一般性内容，具体课程安排和开班信息请以官方发布为准。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>xman51期</h4>
+                    <ul>
+                        <li>实训班级专题展示</li>
+                        <li>记录成长与项目成果</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容导览</h4>
+                    <ul>
+                        <li><a href="#overview">班级概览</a></li>
+                        <li><a href="#curriculum">课程体系</a></li>
+                        <li><a href="#projects">项目作品</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>说明</h4>
+                    <ul>
+                        <li>本页面为专题介绍页</li>
+                        <li>具体招生及课程信息请咨询官方</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2025 xman51期 专题页面 · 仅供学习交流参考
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
